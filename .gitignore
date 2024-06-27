@@ -1,0 +1,16 @@
+# Ignore build directory
+build/
+
+# ESP-IDF specific files
+sdkconfig
+sdkconfig.old
+
+# Visual Studio Code specific files
+.vscode/
+
+# Linux specific files
+*~
+
+# Logs and databases
+*.log
+
