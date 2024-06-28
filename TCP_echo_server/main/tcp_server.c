@@ -155,6 +155,7 @@ static void tcp_server_task(void *pvParameters)
     vTaskDelete(NULL);
 }
 
+// Start the TCP server
 void start_tcp_server(void) 
 {
     client_mutex = xSemaphoreCreateMutex();
@@ -163,5 +164,6 @@ void start_tcp_server(void)
         ESP_LOGE(TAG, "Failed to create client mutex");
         return;
     }
+    
     xTaskCreate(tcp_server_task, "tcp_server_task", TASK_STACK_SIZE, NULL, TASK_PRIORITY, NULL);
 }
