@@ -20,7 +20,7 @@ This project implements a TCP Echo Server using the [ESP-IDF](https://docs.espre
 │   ├── wifi_init.h
 │   ├── test_tcp_echo_server.c
 └── sdkconfig (.gitignore)
-
+```
 - **CMakeLists.txt**: Build configuration file for the project.
 - **main/**: Directory containing the main application code and tests.
   - **CMakeLists.txt**: CMake configuration for the main application.
