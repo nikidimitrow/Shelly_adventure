@@ -134,7 +134,12 @@ static void tcp_server_task(void *pvParameters)
                 tcp_client_info_t *client = &clients[client_count++];
                 client->sock = sock;
                 client->message_count = 0;
-                xTaskCreate(handle_client, "handle_client", TASK_STACK_SIZE, client, TASK_PRIORITY, NULL);
+                if (xTaskCreate(handle_client, "handle_client", TASK_STACK_SIZE, client, TASK_PRIORITY, NULL) != pdPASS) 
+                {
+                        ESP_LOGE(TAG, "create task was not okey");
+                        close(sock);
+                        client_count--;
+                }
             } else 
             {
                 ESP_LOGE(TAG, "Not able to process, too much client");
@@ -166,4 +171,5 @@ void start_tcp_server(void)
     }
     
     xTaskCreate(tcp_server_task, "tcp_server_task", TASK_STACK_SIZE, NULL, TASK_PRIORITY, NULL);
+   
 }
