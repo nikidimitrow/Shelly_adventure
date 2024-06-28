@@ -1,5 +1,4 @@
-idf_component_register(SRCS "tcp_echo_server.c" "test_tcp_echo_server.c"
-                       INCLUDE_DIRS "."
+idf_component_register(SRCS "main.c" "tcp_server.c" "wifi_init.c" "test_tcp_echo_server.c"                       INCLUDE_DIRS "."
                        REQUIRES nvs_flash esp_event esp_netif freertos lwip unity esp_wifi) 
 
 # Enable Unity testing framework
